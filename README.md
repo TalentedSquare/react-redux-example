@@ -1,6 +1,7 @@
 # react-redux-example
 
 [![Build Status](https://travis-ci.org/TalentedSquare/react-redux-example.svg?branch=master)](https://travis-ci.org/TalentedSquare/react-redux-example)
+[![Floobits Status](https://floobits.com/TalentedSquare/react-redux-example.svg)](https://floobits.com/TalentedSquare/react-redux-example/redirect)
 
 An example ES6/ES7 React app with Redux
 

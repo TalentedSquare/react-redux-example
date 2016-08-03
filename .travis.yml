@@ -3,3 +3,8 @@ node_js:
   - "6"
   - "6.1"
   - "5.11"
+notifications:
+  slack: talentedsquare:r8q6jSZ5dlrVHlpwXD7UbrJf
+  email:
+    - devops@talentedsquare.com
+

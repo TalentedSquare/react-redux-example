@@ -11,7 +11,7 @@ const
   appActions = new AppActions({ appConstants }),
   initialState = {
     test : 'Hello World',
-    boolTest : false
+    boolTest : 'false'
   },
   reducer = (state = initialState, action) => {
 
@@ -19,7 +19,7 @@ const
 
       case appConstants.CHANGE_BOOL:
         return Object.assign({}, state, {
-          boolTest : true
+          boolTest : 'true'
         });
 
       default:
