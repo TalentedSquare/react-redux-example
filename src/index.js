@@ -5,35 +5,14 @@ import { createStore } from 'redux';
 import AppConstants from './constants/App';
 import AppActions from './actions/App';
 import { Provider } from 'react-redux';
+import appReducer from './reducers/App';
 
-const
-  appConstants = new AppConstants(),
-  appActions = new AppActions({ appConstants }),
-  initialState = {
-    test : 'Hello World',
-    boolTest : 'false'
-  },
-  reducer = (state = initialState, action) => {
-
-    switch(action.type) {
-
-      case appConstants.CHANGE_BOOL:
-        return Object.assign({}, state, {
-          boolTest : 'true'
-        });
-
-      default:
-        return state;
-
-    }
-
-  },
-  store = createStore(reducer);
+const store = createStore(appReducer);
 
 ReactDOM.render((
 
   <Provider store={store}>
-    <App injector={{ appActions }} />
+    <App />
   </Provider>
 
 ), document.getElementById('root'));

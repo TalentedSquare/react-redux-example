@@ -1,15 +1,8 @@
 import autoBind from 'react-autobind';
-export default class AppAction {
+import * as types from '../constants/App';
 
-  constructor(injector = {}) {
-    Object.assign(this, injector);
-    autoBind(this);
-  }
-
-  changeBool() {
+export function changeBool() {
     return {
-      type : this.appConstants.CHANGE_BOOL
+      type : types.CHANGE_BOOL
     }
   }
-
-}
