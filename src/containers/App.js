@@ -13,9 +13,8 @@ export default class App extends Component {
   }
 
   render() {
-    const
-      { dispatcher, appActions, hello } = this.props,
-      actions = bindActionCreators(appActions, dispatcher);
+    const { dispatcher, appActions, hello } = this.props;
+    //const actions = bindActionCreators(appActions, dispatcher);
 
     return (
       <div>
