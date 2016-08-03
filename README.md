@@ -1,4 +1,7 @@
 # react-redux-example
+
+[![Build Status](https://travis-ci.org/TalentedSquare/react-redux-example.svg?branch=master)](https://travis-ci.org/TalentedSquare/react-redux-example)
+
 An example ES6/ES7 React app with Redux
 
 ## Available Scripts
