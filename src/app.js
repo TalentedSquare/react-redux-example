@@ -15,9 +15,7 @@ export const
   appStore = createStore(combineReducers({
   	...reducers,
   	routing: routerReducer
-  })),
+  }), (window.devToolsExtension && window.devToolsExtension())),
   appHistory = syncHistoryWithStore(browserHistory, appStore);
-
-console.log(appActions);
 
 export default  { Container, constants, reducers, actions, store : appStore };

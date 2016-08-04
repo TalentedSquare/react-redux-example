@@ -15,9 +15,6 @@ export default class App extends Component {
 
     const actions = bindActionCreators(app.actions, this.props.dispatch);
 
-    console.debug('AppContainer.render()', 'props', this.props);
-    console.debug('AppContainer.render()', 'actions', actions);
-
     return (
       <div>
         <h1>{this.props.hello}</h1>
