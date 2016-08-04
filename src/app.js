@@ -4,12 +4,19 @@ import * as constants from './constants/app';
 import * as actions from './actions/app';
 import Container from './containers/App';
 
+import { browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+
 export const
   AppContainer = Container,
   appConstants = constants,
   appReducers = reducers,
   appActions = actions,
-  appStore = createStore(combineReducers(reducers));
+  appStore = createStore(combineReducers({
+  	...reducers,
+  	routing: routerReducer
+  })),
+  history = syncHistoryWithStore(browserHistory, appStore);
 
 console.log(appActions);
 
