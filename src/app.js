@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-import reducers, { appReducer } from './reducers/app';
+import { combineReducers, createStore } from 'redux';
+import reducers from './reducers/app';
 import * as constants from './constants/app';
 import * as actions from './actions/app';
 import Container from './containers/App';
@@ -9,7 +9,7 @@ export const
   appConstants = constants,
   appReducers = reducers,
   appActions = actions,
-  appStore = createStore(appReducer);
+  appStore = createStore(combineReducers(reducers));
 
 console.log(appActions);
 
