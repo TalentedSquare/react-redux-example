@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import app, { AppContainer } from './app';
 
-console.log(app);
-
 ReactDOM.render((
 
   <Provider store={app.store}>

@@ -3,20 +3,19 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 @connect((state) => ({
-  hello : state.test,
-  boolTest : state.boolTest
+    hello : state.appReducer.test,
+    boolTest : state.appReducer.boolTest
 }))
 export default class App extends Component {
 
   render() {
-    console.debug('AppContainer.render -> props', this.props);
-    console.debug('AppContainer.render -> appActions', this.appActions);
 
     const
       app = this.props.app,
       actions = bindActionCreators(app.actions, this.props.dispatch);
 
-    console.debug('AppContainer.render -> actions', actions);
+    console.debug('AppContainer.render()', 'props', this.props);
+    console.debug('AppContainer.render()', 'actions', actions);
 
     return (
       <div>
