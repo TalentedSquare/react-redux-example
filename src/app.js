@@ -16,7 +16,7 @@ export const
   	...reducers,
   	routing: routerReducer
   })),
-  history = syncHistoryWithStore(browserHistory, appStore);
+  appHistory = syncHistoryWithStore(browserHistory, appStore);
 
 console.log(appActions);
 
