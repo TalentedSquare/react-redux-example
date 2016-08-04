@@ -7,7 +7,9 @@ import app from './../app';
 
 @connect((state) => ({
     hello : state.appReducer.test,
-    boolTest : state.appReducer.boolTest
+    boolTest : state.appReducer.boolTest,
+    numb : state.appReducer.numb,
+    incrementing : state.appReducer.incrementing
 }))
 export default class App extends Component {
 
@@ -23,7 +25,11 @@ export default class App extends Component {
         <Link to="/users">users</Link>
         <br/>
         <Link to="/repos">repos </Link>
-        <br/>
+        <br/><br/>
+        <div>{ this.props.incrementing ? "loading" : this.props.numb}</div>
+        <div onClick={()=>{
+          actions.incrementAsync()
+        }}>+</div>
         <a onClick={()=>{
           actions.changeBool();
         }}>Click me to change the bool value</a>
