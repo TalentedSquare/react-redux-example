@@ -1,4 +1,5 @@
 import * as types from '../constants/app';
+import fetch from 'isomorphic-fetch'
 
 export function changeBool() {
     return {
@@ -19,8 +20,28 @@ export function incrementAsync() {
   return dispatch => {
   	dispatch(incrementBegin());
     setTimeout(() => {
-      // Yay! Can invoke sync or async actions with `dispatch`
       dispatch(increment());
-    }, 3000);
+    }, 2000);
+  };
+}
+export function getRepos(data) {
+    return {
+      type : types.GET_REPOS_SUCCESS,
+      data : data
+    }
+  }
+export function getReposBegin() {
+  return {
+    type : types.GET_REPOS
+  }
+}
+export function fetchRepos() {
+  return dispatch => {
+    dispatch(getReposBegin());
+    return fetch(`https://api.github.com/search/repositories?q=react+redux:javascript&sort=stars&order=desc`)
+      .then(response => response.json())
+      .then(json =>
+        dispatch(getRepos(json))
+      )
   };
 }

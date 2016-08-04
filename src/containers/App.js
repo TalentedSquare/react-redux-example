@@ -16,7 +16,6 @@ export default class App extends Component {
   render() {
 
     const actions = bindActionCreators(app.actions, this.props.dispatch);
-
     return (
       <div>
         <h1>{this.props.hello}</h1>
@@ -29,11 +28,13 @@ export default class App extends Component {
         <div>{ this.props.incrementing ? "loading" : this.props.numb}</div>
         <div onClick={()=>{
           actions.incrementAsync()
-        }}>+</div>
+        }}>+ click me to increment the number asyncronously</div>
+        <br/><br/>
+        <div><strong>boolTest :</strong> {this.props.boolTest ? "true" : "false"}</div>
         <a onClick={()=>{
           actions.changeBool();
         }}>Click me to change the bool value</a>
-        <p><strong>boolTest :</strong> {this.props.boolTest ? "true" : "false"}</p>
+        <br/><br/>
         {this.props.children}
       </div>
     );

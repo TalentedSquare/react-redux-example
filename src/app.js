@@ -1,5 +1,8 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers/app';
+
+import {reposReducer} from './reducers/repos';
+
 import * as constants from './constants/app';
 import * as actions from './actions/app';
 import Container from './containers/App';
@@ -16,6 +19,7 @@ export const
   appStore = createStore(
     combineReducers({
     	...reducers,
+      reposReducer,
     	routing: routerReducer
     }),
     compose(
