@@ -14,17 +14,33 @@ export default class Repos extends Component {
 	constructor(props) {
 		super(props);
 		this.actions = bindActionCreators(app.actions, this.props.dispatch);
+		this.state = {
+			inputValue : "react redux"
+		}
+		console.log("this ",this)
 	}
   componentDidMount() {
   	this.actions.fetchRepos();
+  }
+  _handleInput(e){
+  	this.setState({
+  		inputValue : e.target.value
+  	})
+  }
+  _handleClick(e){
+  	this.actions.fetchRepos(this.state.inputValue);
   }
   render() {
     const repos = this.props.repos;
     return (
       <div>
-       	<div onClick={()=>{
-          actions.fetchRepos()
-        }}>CLICK TO FETCH </div>
+        <input 
+        	type="text"
+        	value={this.state.inputValue}
+        	onChange={this._handleInput.bind(this)}/>
+        <button
+        	onClick={this._handleClick.bind(this)}
+        >search repositories</button>
         <div>
           { repos.loading ? "loading repos" : (repos.loaded ? repos.repos.items.length + " repositories loaded" : "")}
         </div>

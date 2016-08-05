@@ -35,10 +35,11 @@ export function getReposBegin() {
     type : types.GET_REPOS
   }
 }
-export function fetchRepos() {
+export function fetchRepos(filter) {
+  let filterWords = (filter ? filter : "react redux");
   return dispatch => {
     dispatch(getReposBegin());
-    return fetch(`https://api.github.com/search/repositories?q=react+redux:javascript&sort=stars&order=desc`)
+    return fetch(`https://api.github.com/search/repositories?q=${filter}:javascript&sort=stars&order=desc`)
       .then(response => response.json())
       .then(json =>
         dispatch(getRepos(json))
