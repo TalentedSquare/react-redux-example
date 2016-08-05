@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-example",
+  "name": "react-redux-github-trending",
   "description": "An example ES6/ES7 React app with Redux",
   "version": "0.0.1",
   "private": true,
@@ -35,9 +35,11 @@
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.22.0",
     "json-loader": "0.5.4",
+    "material-ui": "^0.15.3",
     "opn": "4.0.2",
     "postcss-loader": "0.9.1",
     "promise": "7.1.1",
+    "react-tap-event-plugin": "^1.0.0",
     "redux-devtools": "^3.3.1",
     "rimraf": "2.5.4",
     "style-loader": "0.13.1",

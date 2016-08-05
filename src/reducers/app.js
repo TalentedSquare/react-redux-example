@@ -1,31 +1,19 @@
 import { appConstants } from '../app';
 
 const initialState = {
-  test : 'Hello World',
-  boolTest : false,
   numb : 0,
-  incrementing : false
+  title : 'GitHub Trending',
+  isDrawerOpen : false
 };
 
-export const appReducer = function (state = initialState, action){
+export const appReducer = (state = initialState, action) => {
 
   switch(action.type) {
 
-    case appConstants.CHANGE_BOOL:
+    case appConstants.TOGGLE_DRAWER:
 
       return Object.assign({}, state, {
-        boolTest : !state.boolTest
-      });
-
-    case appConstants.INCREMENT_NUMB:
-      return Object.assign({}, state, {
-        numb : state.numb + 1 ,
-        incrementing : false
-      });
-
-    case appConstants.INCREMENT_BEGIN:
-      return Object.assign({}, state, {
-        incrementing : true
+        isDrawerOpen : !state.isDrawerOpen
       });
 
     default:

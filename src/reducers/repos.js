@@ -5,7 +5,7 @@ const initialState = {
   repos : {}
 };
 
-export const reposReducer = function (state = initialState, action){
+export const reposReducer = (state = initialState, action) => {
 
   switch(action.type) {
 

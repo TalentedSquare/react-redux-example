@@ -1,6 +1,4 @@
-export const CHANGE_BOOL = 'CHANGE_BOOL';
-export const INCREMENT_NUMB = 'INCREMENT_NUMB';
-export const INCREMENT_BEGIN = 'INCREMENT_BEGIN';
+export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
 
 // repos
 export const GET_REPOS = 'GET_REPOS';

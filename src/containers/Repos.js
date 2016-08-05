@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router'
 
 import app from './../app';
 
@@ -16,8 +15,7 @@ export default class Repos extends Component {
 		this.actions = bindActionCreators(app.actions, this.props.dispatch);
 		this.state = {
 			inputValue : "react redux"
-		}
-		console.log("this ",this)
+		};
 	}
   componentDidMount() {
   	this.actions.fetchRepos();
@@ -34,7 +32,7 @@ export default class Repos extends Component {
     const repos = this.props.repos;
     return (
       <div>
-        <input 
+        <input
         	type="text"
         	value={this.state.inputValue}
         	onChange={this._handleInput.bind(this)}/>
@@ -44,10 +42,10 @@ export default class Repos extends Component {
         <div>
           { repos.loading ? "loading repos" : (repos.loaded ? repos.repos.items.length + " repositories loaded" : "")}
         </div>
-        {	
+        {
         	repos.loaded &&  <ItemsTable items={repos.repos.items}/>
         }
-        
+
         <br/><br/>
       </div>
     );
@@ -74,10 +72,10 @@ class ItemsTable extends Component {
 				        					<a href={item.html_url}><b>link to repo</b></a>
 				        				</td>
 				        			</tr>
-				        	}) 
+				        	})
 				        }
 				    </tbody>
-				</table> 
+				</table>
 			</div>
 		)
 	}

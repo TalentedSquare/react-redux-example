@@ -1,48 +1,22 @@
 import * as types from '../constants/app';
 import fetch from 'isomorphic-fetch'
 
-export function changeBool() {
-    return {
-      type : types.CHANGE_BOOL
-    }
-  }
-export function increment() {
-    return {
-      type : types.INCREMENT_NUMB
-    }
-  }
-export function incrementBegin() {
-	return {
-	  type : types.INCREMENT_BEGIN
-	}
-}
-export function incrementAsync() {
-  return dispatch => {
-  	dispatch(incrementBegin());
-    setTimeout(() => {
-      dispatch(increment());
-    }, 2000);
-  };
-}
-export function getRepos(data) {
-    return {
-      type : types.GET_REPOS_SUCCESS,
-      data : data
-    }
-  }
-export function getReposBegin() {
-  return {
+export const
+  toggleDrawer = () => ({
+    type : types.TOGGLE_DRAWER
+  }),
+  getRepos = (data) => ({
+    type : types.GET_REPOS_SUCCESS,
+    data : data
+  }),
+  getReposBegin = () => ({
     type : types.GET_REPOS
-  }
-}
-export function fetchRepos(filter) {
-  let filterWords = (filter ? filter : "react redux");
-  return dispatch => {
-    dispatch(getReposBegin());
-    return fetch(`https://api.github.com/search/repositories?q=${filter}:javascript&sort=stars&order=desc`)
-      .then(response => response.json())
-      .then(json =>
-        dispatch(getRepos(json))
-      )
+  }),
+  fetchRepos = (filter) => (dispatch) => {
+      dispatch(getReposBegin());
+      return fetch(`https://api.github.com/search/repositories?q=${filter}:javascript&sort=stars&order=desc`)
+        .then(response => response.json())
+        .then(json =>
+          dispatch(getRepos(json))
+        );
   };
-}
